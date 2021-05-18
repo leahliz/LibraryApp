@@ -94,22 +94,22 @@
           
           <div class="row">    
             <br>
-            <form action="<%=nav[0].link%>" >
+            <form method="get" action="/addbook/add" >
                 <div class="mb-3">
                   <label for="bname" class="form-label">Enter Book Name</label>
-                  <input type="text" class="form-control" id="bname" aria-describedby="emailHelp" required>
+                  <input type="text" name="title" class="form-control" id="bname" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                   <label for="aname" class="form-label">Enter Author</label>
-                  <input type="text" class="form-control" id="aname" required>
+                  <input type="text" name="author" class="form-control" id="aname" required>
                 </div>
                 <div class="mb-3">
                     <label for="genre" class="form-label">Enter Genre</label>
-                    <input type="text" class="form-control" id="genre" required>
+                    <input type="text" name="genre" class="form-control" id="genre" required>
                   </div>
                   <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Book Cover</label>
-                    <input class="form-control" type="file" id="formFile" required>
+                    <input class="form-control" name="image" type="file" id="formFile" required>
                   </div>
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">

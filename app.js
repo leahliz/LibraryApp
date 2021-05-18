@@ -1,6 +1,6 @@
 const express=require('express');
 const app= new express();
-const port=process.env.PORT||5500;
+//const port=process.env.PORT||5500;
 const nav=[
     {
         link:"/books",
@@ -11,7 +11,7 @@ const nav=[
         name:"Authors"
     },
     {
-        link:"/login",
+        link:"/signup/login",
         name:"Login"
     },
     {
@@ -22,14 +22,28 @@ const nav=[
 ];
 const booksRouter=require("./src/Router/bookRouter")(nav);
 const authorRouter=require("./src/Router/authorRouter")(nav);
+const addBookRouter=require("./src/Router/addbook")(nav);
+const addAuthorRouter=require("./src/Router/addAuthor")(nav);
+const userRouter=require("./src/Router/userRouter")(nav);
 
+
+app.use(express.urlencoded({extended:true}));
 app.use(express.static("./public"));
 app.set('view engine','ejs');
 app.set('views',__dirname+"/src/view");
 
+
 app.use("/books",booksRouter);
 
 app.use("/authors",authorRouter);
+
+app.use("/addbook",addBookRouter);
+
+app.use("/addauthor",addAuthorRouter);
+
+app.use("/signup",userRouter);
+
+
 
 app.get('/',function(req,res){
    // res.send("Hello World!!");
@@ -40,35 +54,13 @@ app.get('/',function(req,res){
    });
 });
 
-app.get("/login",function(req,res){
-    res.render("login",{
-        nav,
-        title:"LogIn"
-    });
-});
-
-app.get("/signup",function(req,res){
-    res.render("signup",{
-        nav,
-        title:"SignUp"
-    });
-});
-
-app.get("/addbook",function(req,res){
-    res.render("addbook",{
-        nav,
-        title:"Add Book"
-    });
-});
-
-app.get("/addauthor",function(req,res){
-    res.render("addauthor",{
-        nav,
-        title:"Add Book"
-    });
-});
 
 
 
 
-app.listen(port,()=>{console.log("Server ready at "+port)});
+
+
+
+
+app.listen(5000);
+//app.listen(port,()=>{console.log("Server ready at "+port)});

@@ -55,6 +55,7 @@
         <h1><%=title%>
           <p class="lead"></p>
         </h1>
+        <p>Sign In To Continue</p>
       </div>
       <div class="col-md-5">
         <div class="well well-lg"> 
@@ -94,22 +95,22 @@
           
           <div class="row">    
             <br>
-            <form class="row g-3" action="<%=nav[0].link%>"  onsubmit="return validate()"  >
+            <form class="row g-3" action="/signup/add"  onsubmit="return validate()" method="POST"  >
                 <div class="col-md-6">
                   <label for="inputFirstName" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="inputFirstName" required>
+                  <input type="text" name="FirstName" class="form-control" id="inputFirstName" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputLastName" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="inputLastName" required>
+                  <input type="text" name="LastName" class="form-control" id="inputLastName" required>
                 </div>
                 <div class="col-12">
                   <label for="inputemail" class="form-label">Email ID</label>
-                  <input type="email" class="form-control" id="inputemail" required>
+                  <input type="email" name="email" class="form-control" id="inputemail" required>
                 </div>
                 <div class="col-12">
                   <label for="inputpassword" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputpassword" required>
+                  <input type="password" name="password" class="form-control" id="inputpassword" placeholder="Minimum 8 characters.Should include special characters,numbers,uppercase letters" required>
                 </div>
                 
                 <div class="col-12">
@@ -198,6 +199,7 @@
           return true ;
         }
         else{
+          alert("Enter valid password");
           return false;
         }
         

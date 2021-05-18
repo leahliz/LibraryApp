@@ -12,6 +12,7 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="/css/styles.css" rel="stylesheet">
+        <link href="/css/formstyles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -32,9 +33,6 @@
           <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
         </li>
         <%}%>
-        <li>
-          <a href="<%=nav4.nlink%>"><%=nav4.nname%></a>
-        </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -96,20 +94,27 @@
           
           <div class="row">    
             <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img src="/images/<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%=book.title%></h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=book.author%></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=book.genre%> <a href="<%=book._id%>/updateBook" class="text-muted">Update</a></small>
-                  </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
+            <form method="get" action="/authors/<%=author._id%>/updateAuthor/updater">
+                <div class="mb-3">
+                  <label for="aname" class="form-label">Enter Author</label>
+                  <input type="text" name="author" value="<%=author.author%>" class="form-control" id="aname" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                  <label for="wname" class="form-label">Enter Works</label>
+                  <input type="text" name="work" value="<%=author.work%>" class="form-control" id="wname" required>
+                </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Upload Author's Picture</label>
+                    <input class="form-control" name="image" value="<%=author.image%>" type="file" id="formFile" required>
+                  </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="/authors/<%=author._id%>"> <button type="button" class="btn btn-primary" >Discard Changes</button></a>
+                <a href="/authors/<%=author._id%>/updateAuthor/dlt"> <button type="button" class="btn btn-primary" >Delete Author</button></a>
+              </form>
           </div>
           <hr>
           

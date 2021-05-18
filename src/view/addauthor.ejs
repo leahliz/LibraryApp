@@ -94,18 +94,18 @@
           
           <div class="row">    
             <br>
-            <form action="<%=nav[1].link%>">
+            <form method="get" action="/addauthor/add">
                 <div class="mb-3">
                   <label for="aname" class="form-label">Enter Author</label>
-                  <input type="text" class="form-control" id="aname" aria-describedby="emailHelp" required>
+                  <input type="text" name="author" class="form-control" id="aname" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                   <label for="wname" class="form-label">Enter Works</label>
-                  <input type="text" class="form-control" id="wname" required>
+                  <input type="text" name="work" class="form-control" id="wname" required>
                 </div>
                   <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Author's Picture</label>
-                    <input class="form-control" type="file" id="formFile" required>
+                    <input class="form-control" name="image" type="file" id="formFile" required>
                   </div>
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
